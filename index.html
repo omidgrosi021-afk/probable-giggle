@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+نه<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -89,6 +89,14 @@ const foods = [
 const cart = {};
 const toman = n => new Intl.NumberFormat('fa-IR').format(n);
 function renderMenu(){
+  document.getElementById('menu').innerHTML = foods.map((f,i)=>`
+    <article class="item">
+      ${i === 0 ? `<img src="images/Screenshot_2026-11-06-14-56-38-131_com.instagram.android.jpg" alt="چلو جوجه زعفرانی" style="width:100%;max-width:300px;height:200px;object-fit:cover;border-radius:12px;">` : ''}
+      <h3>${f.name}</h3>
+      <div class="price">${toman(f.price)} تومان</div>
+      <button class="add" type="button" onclick="addFood(${i})">افزودن به سبد خرید</button>
+    </article>`).join('');
+}
   document.getElementById('menu').innerHTML = foods.map((f,i)=>`
     <article class="item"><h3>${f.name}</h3>
     <div class="price">${toman(f.price)} تومان</div>
